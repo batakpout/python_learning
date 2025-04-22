@@ -2,7 +2,7 @@ def exitPoint(arr):
     i, j, direction = 0, 0, 0
 
     while True:
-        direction = (arr[i][j]  + direction) % 4
+        direction = (arr[i][j] + direction) % 4
         if direction == 0:
             j += 1
         elif direction == 1:
@@ -14,6 +14,7 @@ def exitPoint(arr):
 
         print(f"i = {i}")
         print(f"j = {j}")
+
         if i < 0:
             i += 1
             break
@@ -28,6 +29,14 @@ def exitPoint(arr):
             break
     print("Exit point:", i, j)
 
+
+"""
+
+Complexity	Value	    Explanation
+Time	    O(n × m)	In the worst case, every cell is visited once.
+Space	    O(1)	    Only a few variables are used; no extra storage.
+
+"""
 if __name__ == "__main__":
     arr_2d = []
 
@@ -48,4 +57,3 @@ if __name__ == "__main__":
 
     print("printing exit point of a 2d array: ")
     exitPoint(arr_2d)
-

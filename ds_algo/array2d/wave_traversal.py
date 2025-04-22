@@ -7,6 +7,11 @@ def spiral_print(arr):
                 for i in range(len(arr) - 1, -1 , -1):
                     print(arr[i][j])
 
+"""
+Time Complexity: O(m * n), where m is the number of rows and n is the number of columns in the input matrix.
+
+Space Complexity: O(1) (constant space, no additional storage proportional to input size).
+"""
 
 if __name__ == "__main__":
     arr_2d = []

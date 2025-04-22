@@ -39,7 +39,10 @@ def spiralTraversal(arr, row, col):
         min_r += 1
 
 
-
+"""
+Time Complexity: O(m * n)
+Space Complexity: O(1)
+"""
 
 if __name__ == "__main__":
     arr_2d = []

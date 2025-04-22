@@ -4,7 +4,13 @@ def increment_2d_array(arr):
         for j in range(len(arr[i])):
             arr[i][j] += 2
     return arr
+"""
 
+Complexity	Value
+Time	    O(n × m)
+Space	    O(1) (in-place)
+
+"""
 
 def main():
     # Get dimensions from user

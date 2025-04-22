@@ -29,17 +29,17 @@ def rotate(arr_1d, k):
 
 def make1DFromShell(arr_2d, s) -> List[int]:
     min_r = s - 1
-    max_r = len(arr_2d) - 2
+    max_r = len(arr_2d) - s
     min_c = s - 1
-    max_c = len(arr_2d[0]) - 2
+    max_c = len(arr_2d[0]) - s
     size = 2 * ((max_r - min_r) + (max_c - min_c))
     arr_1d = [0] * size
 
-    print(f"min_r: {min_r}")
-    print(f"max_r: {max_r}")
-    print(f"min_c: {min_c}")
-    print(f"max_c: {max_c}")
-    print(f"size: {size}")
+    # print(f"min_r: {min_r}")
+    # print(f"max_r: {max_r}")
+    # print(f"min_c: {min_c}")
+    # print(f"max_c: {max_c}")
+    # print(f"size: {size}")
 
     i, j, idx = min_r, min_c, 0
     while i <= max_r:
@@ -73,9 +73,9 @@ def make1DFromShell(arr_2d, s) -> List[int]:
 
 def makeShellFrom1D(arr_2d, arr_1d, s) -> List[int]:
     min_r = s - 1
-    max_r = len(arr_2d) - 2
+    max_r = len(arr_2d) - s
     min_c = s - 1
-    max_c = len(arr_2d[0]) - 2
+    max_c = len(arr_2d[0]) - s
 
     i, j, idx = min_r, min_c, 0
     while i <= max_r:
@@ -109,15 +109,32 @@ def makeShellFrom1D(arr_2d, arr_1d, s) -> List[int]:
 
 def shellRotate(arr_2d, s, k):
     arr_1d = make1DFromShell(arr_2d, s)
-    print("1d array formed")
-    print(arr_1d)
+    # print("1d array formed")
+    # print(arr_1d)
     arr_1d = rotate(arr_1d, k)
-    print("rotated array by 2")
-    print(arr_1d)
+    # print("rotated array by 2")
+    # print(arr_1d)
     arr_2d_new = makeShellFrom1D(arr_2d, arr_1d, s)
     return arr_2d_new
 
+"""
+make1DFromShell: Time Complexity: O(m), where m is the number of elements in the shell.
+Space Complexity: O(m), as it creates a new 1D array of size m.
 
+rotate: Time Complexity: O(m), as it performs three reverses, each taking O(m/2) time.
+Space Complexity: O(1), as it operates in-place on the input array.
+
+makeShellFrom1D: Time Complexity: O(m), similar to make1DFromShell, as it iterates over the shell elements.
+Space Complexity: O(1), as it modifies the input 2D array in-place.
+
+shellRotate:
+Time Complexity: Dominated by the three methods it calls:make1DFromShell: O(m),rotate: O(m), makeShellFrom1D: O(m)
+Total: O(m) + O(m) + O(m) = O(m)
+
+Space Complexity:
+The main additional space is the 1D array of size m created in make1DFromShell. So, O(m)
+
+"""
 if __name__ == "__main__":
     arr_2d = []
 

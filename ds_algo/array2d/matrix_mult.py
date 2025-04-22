@@ -2,13 +2,22 @@ def multiply(arr1, arr2):
     if len(arr1[0]) != len(arr2):
         raise ValueError("Number of columns in 'arr1' must match rows in 'arr2'")
         # final array size will have arr1 rows and arr2 cols
-    arr3 = [[0 for _ in range(len(arr2[0]))] for _ in range(len(arr1))]
+    arr3 = [[None for _ in range(len(arr2[0]))] for _ in range(len(arr1))]
     for i in range(len(arr1)):
         for j in range(len(arr2[0])):
             for k in range(len(arr2)):
                 arr3[i][j] += arr1[i][k] * arr2[k][j]
     return arr3
 
+"""
+Complexity	Value	        Explanation
+Time	    O(n × m × p)	Due to the triple-nested loop.
+Space	    O(n × p)	    Due to the result matrix arr3.
+
+n = rows of arr1
+m = len(arr1[0]) = len(arr2) (cols of arr1 and rows of arr2)
+p = len(arr2[0]) (cols of arr2)
+"""
 
 if __name__ == "__main__":
     arr_2d1 = []
